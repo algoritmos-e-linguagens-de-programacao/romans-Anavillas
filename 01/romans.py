@@ -11,8 +11,8 @@ def int_to_roman(num):
             num -=value
 
     return roman_num
-
-user_input = int(input("Digite um número inteiro APENAS de 1 até 4999 para converter em algarismos romanos: "))
-print(f"O número {user_input} em algarismos romanos é: {int_to_roman(user_input)}")
+num = 1994
+variavel = int_to_roman(num)
+print (variavel)
 
 
