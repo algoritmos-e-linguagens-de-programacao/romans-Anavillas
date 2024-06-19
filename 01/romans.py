@@ -11,8 +11,10 @@ def int_to_roman(num):
             num -=value
 
     return roman_num
-num = 1994
+
+num = 194
 variavel = int_to_roman(num)
 print (variavel)
 
-
+def roman_to_int(s):
+    pass
