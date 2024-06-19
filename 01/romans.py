@@ -1,20 +1,28 @@
 def int_to_roman(num):
-    int_for_roman = { 
-        1000:"M", 900:"CM", 500:"D", 400:"CD", 100:"C", 90:"XC", 50:"L", 40:"XL", 10:"X", 9:"IX", 5:"V", 4:"IV", 1:"I" 
-    }
-
-    roman_num = ''
     
-    for value in sorted(int_for_roman.keys(), reverse=True):
-        while num >= value:
-            roman_num += int_for_roman[value]
-            num -=value
+    milhar = ["", "M", "MM", "MMM"]
+    centena = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]
+    dezena = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
+    unidade = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
 
-    return roman_num
-
-num = 194
-variavel = int_to_roman(num)
-print (variavel)
+    return milhar[num // 1000] + centena[(num % 1000) // 100] + dezena[(num % 100) // 10] + unidade[num % 10]
 
 def roman_to_int(s):
-    pass
+    
+    roman_int = { 'I': 1, 'V' : 5, 'X' : 10, 'L' : 50, 'C' : 100, 'D' : 500, 'M' : 1000 }
+    total = 0
+    i = 0
+
+    for i in range( len(s) ):
+        if i + 1 < len(s) and roman_int[s[i]] < roman_int[s[i + 1]]:
+            total -= roman_int[s[i]]
+
+        else:
+            total += roman_int[s[i]]
+
+    return total
+
+print( int_to_roman(2002) )
+print( roman_to_int('MMII') )
+
+    
